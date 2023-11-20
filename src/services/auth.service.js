@@ -17,7 +17,7 @@ export const register = ({email, password}) => new Promise( async (resolve, reje
         resolve({
             err: response[1] ? 0 : 1,
             mes: response[1] ? 'Registration successful!' : 'This email address is already in use.',
-            'access_token': `Bearer ${token}`
+            'access_token': token ? `Bearer ${token}` : token
         })
     } catch (error) {
         reject(error)
