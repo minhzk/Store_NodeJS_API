@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "binhminh1582003",
+    "database": "store",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false,
+    "timezone": "+07:00"
+  },
+  "test": {
+    "username": "root",
+    "password": "binhminh1582003",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "binhminh1582003",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
