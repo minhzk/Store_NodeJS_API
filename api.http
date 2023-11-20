@@ -1,1 +1,20 @@
 GET http://localhost:5000/api/v1/user
+
+###
+
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "email": "admin1@example.com",
+    "password": "password"
+}
+###
+
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin1@example.com",
+    "password": "password"
+}
