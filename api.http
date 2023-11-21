@@ -18,3 +18,8 @@ Content-Type: application/json
     "email": "admin@gmail.com",
     "password": "password"
 }
+
+###
+
+GET http://localhost:5000/api/v1/user/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlX2NvZGUiOiJSMyIsImlhdCI6MTcwMDU0OTM0OSwiZXhwIjoxNzAwOTgxMzQ5fQ.S-wrM9va2CRgjw47s35nMh8omrpxUiFw6N9L7i2_Aj8
