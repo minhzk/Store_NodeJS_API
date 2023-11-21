@@ -1,4 +1,4 @@
-import user from './users'
+import user from './user'
 import auth from './auth'
 import { notFound } from '../middlewares/handleError';
 
