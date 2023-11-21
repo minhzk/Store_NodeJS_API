@@ -23,3 +23,7 @@ Content-Type: application/json
 
 GET http://localhost:5000/api/v1/user/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlX2NvZGUiOiJSMiIsImlhdCI6MTcwMDU1MTEwMCwiZXhwIjoxNzAwOTgzMTAwfQ.SMYH0LJrWqYQA_G23Qo9JvnoCw_NupuLSvRuFROT1IY
+
+###
+
+GET http://localhost:5000/api/v1/insert/
