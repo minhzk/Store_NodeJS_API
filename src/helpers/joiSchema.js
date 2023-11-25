@@ -10,3 +10,6 @@ export const category_code = joi.string().uppercase().alphanum().required()
 export const bookId = joi.string().required()
 export const bookIds = joi.array().required()
 export const filename = joi.array().required()
+export const description = joi.string().required()
+export const refreshToken = joi.string().required()
+
