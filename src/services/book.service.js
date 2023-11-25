@@ -42,7 +42,8 @@ export const createBook = (body, fileData) => new Promise( async (resolve, rejec
             defaults: {
                 ...body,
                 id: generateId(),
-                image: fileData?.path
+                image: fileData?.path,
+                filename: fileData?.filename
             }
         })
         resolve({
@@ -52,6 +53,51 @@ export const createBook = (body, fileData) => new Promise( async (resolve, rejec
         if (fileData && !response[1]) cloudinary.uploader.destroy(fileData.filename)
     } catch (error) {
         reject(error)
-        if (fileData && !response[1]) cloudinary.uploader.destroy(fileData.filename)
+        if (fileData) cloudinary.uploader.destroy(fileData.filename)
+    }
+})
+
+export const updateBook = ({bookId, image, ...body}, fileData) => new Promise( async (resolve, reject) => {
+    try {
+        const existingImageData = await db.Book.findByPk(bookId, { attributes: ['filename'] });
+
+        if (fileData) {
+            body.image = fileData?.path
+            body.filename = fileData?.filename
+        }
+        const response = await db.Book.update(body, {
+            where: {id: bookId}
+        })
+        resolve({
+            err: response[0] > 0 ? 0 : 1,
+            mes: response[0] > 0 ? `${response[0]} book updated!` : 'Can not update book / Book ID not found',
+            existingImageData: existingImageData 
+        })
+        
+        if (existingImageData && response[0] > 0  && existingImageData.filename !== fileData.filename) {
+            await cloudinary.uploader.destroy(existingImageData.filename, function(error,result) {
+                console.log(result, error) })
+        }
+        if (fileData && response[0] === 0) cloudinary.uploader.destroy(fileData.filename, function(error,result) {
+            console.log(fileData.filename);
+            console.log(result, error) })
+    } catch (error) {
+        reject(error)
+        if (fileData) cloudinary.uploader.destroy(fileData.filename)
+    }
+})
+
+export const deleteBook = (bookIds, filename) => new Promise( async (resolve, reject) => {
+    try {
+        const response = await db.Book.destroy({
+            where: {id: bookIds}
+        })
+        resolve({
+            err: response > 0 ? 0 : 1,
+            mes: response > 0 ? `${response} book(s) deleted!` : 'Can not delete book / Book ID not found'
+        })
+        cloudinary.api.delete_resources(filename)
+    } catch (error) {
+        reject(error)
     }
 })
