@@ -1,5 +1,5 @@
 import * as services from "../../../services"
-import { interalServerError, badRequest } from "../../middlewares/handleError"
+import { interalServerError } from "../../middlewares/handleError"
 
 export const getAllBooks = async(req, res) => {
     try {
