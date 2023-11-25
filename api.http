@@ -6,7 +6,7 @@ POST http://localhost:5000/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "email": "user@gmail.com",
+    "email": "admin@gmail.com",
     "password": "password"
 }
 ###
@@ -22,7 +22,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:5000/api/v1/user/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlX2NvZGUiOiJSMiIsImlhdCI6MTcwMDU1MTEwMCwiZXhwIjoxNzAwOTgzMTAwfQ.SMYH0LJrWqYQA_G23Qo9JvnoCw_NupuLSvRuFROT1IY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlX2NvZGUiOiJSMyIsImlhdCI6MTcwMDkxNDc5MCwiZXhwIjoxNzAwOTE0Nzk1fQ.I7d5FuayE52VIRHbvj7uEet_mjmEr63VTXAQY2GdYtY
 
 ###
 
